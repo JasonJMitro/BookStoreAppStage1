@@ -20,7 +20,7 @@ public class BookStoreActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_books);
-        
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,7 +30,8 @@ public class BookStoreActivity extends AppCompatActivity {
             }
         });
 
-        mDbHelper = new BookDbHelper(this);}
+        mDbHelper = new BookDbHelper(this);
+    }
 
     @Override
     protected void onStart() {
@@ -68,13 +69,14 @@ public class BookStoreActivity extends AppCompatActivity {
         TextView displayView = (TextView) findViewById(R.id.text_view_book);
 
 
-        try {displayView.setText("The Book Store contains " + cursor.getCount() + " books.\n\n");
+        try {
+            displayView.setText("The Book Store contains " + cursor.getCount() + " books.\n\n");
             displayView.append(BookEntry._ID + " - " +
                     BookEntry.COLUMN_PRODUCT_NAME + " - " +
                     BookEntry.COLUMN_PRICE + " - " +
                     BookEntry.COLUMN_QUANTITY + " - " +
                     BookEntry.COLUMN_SUPPLIER_NAME + " _ " +
-                    BookEntry.COLUMN_SUPPLIER_PHONE+ "\n");
+                    BookEntry.COLUMN_SUPPLIER_PHONE + "\n");
 
             int idColumnIndex = cursor.getColumnIndex(BookEntry._ID);
             int nameColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_PRODUCT_NAME);
@@ -101,7 +103,6 @@ public class BookStoreActivity extends AppCompatActivity {
             cursor.close();
         }
     }
-
 
 
 }

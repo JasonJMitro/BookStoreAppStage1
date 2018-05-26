@@ -18,9 +18,7 @@ public class BookAddActivity extends AppCompatActivity {
 
     private EditText mProductNameEditText;
 
-
     private EditText mPriceEditText;
-
 
     private EditText mQuantityEditText;
 
@@ -34,7 +32,7 @@ public class BookAddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_add);
 
-        // Find all relevant views that we will need to read user input from
+
         mProductNameEditText = (EditText) findViewById(R.id.edit_product_name);
         mPriceEditText = (EditText) findViewById(R.id.edit_price);
         mQuantityEditText = (EditText) findViewById(R.id.edit_quantity);
@@ -46,8 +44,6 @@ public class BookAddActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu options from the res/menu/menu_editor.xml file.
-        // This adds menu items to the app bar.
         getMenuInflater().inflate(R.menu.menu_book_add, menu);
         return true;
     }
@@ -76,7 +72,7 @@ public class BookAddActivity extends AppCompatActivity {
         long newRowId = db.insert(BookEntry.TABLE_NAME, null, values);
 
         if (newRowId == -1) {
-            Toast.makeText(this, "Error with saving book", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error saving book", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Book saved with row id: " + newRowId, Toast.LENGTH_SHORT).show();
         }
@@ -84,14 +80,14 @@ public class BookAddActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // User clicked on a menu option in the app bar overflow menu
+
         switch (item.getItemId()) {
-            // Respond to a click on the "Save" menu option
+
             case R.id.save:
                 insertBook();
                 finish();
                 return true;
-            // Respond to a click on the "Up" arrow button in the app bar
+
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
                 return true;

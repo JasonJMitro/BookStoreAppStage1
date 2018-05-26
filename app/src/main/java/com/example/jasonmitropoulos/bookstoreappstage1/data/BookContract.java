@@ -3,7 +3,8 @@ package com.example.jasonmitropoulos.bookstoreappstage1.data;
 import android.provider.BaseColumns;
 
 public class BookContract {
-    private BookContract() {}
+    private BookContract() {
+    }
 
     public static final class BookEntry implements BaseColumns {
 
@@ -11,7 +12,7 @@ public class BookContract {
 
         public final static String _ID = BaseColumns._ID;
 
-        public final static String COLUMN_PRODUCT_NAME ="product_name";
+        public final static String COLUMN_PRODUCT_NAME = "product_name";
 
         public final static String COLUMN_PRICE = "price";
 
